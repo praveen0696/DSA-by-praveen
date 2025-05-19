@@ -1,6 +1,3 @@
-//{ Driver Code Starts
-import java.io.*;
-import java.lang.*;
 import java.util.*;
 
 public class Smallest_range_in_Klists {
@@ -21,9 +18,6 @@ public class Smallest_range_in_Klists {
         }
     }
 }
-
-// } Driver Code Ends
-
 
 class Node implements Comparable<Node> {
     int val, row, col;
