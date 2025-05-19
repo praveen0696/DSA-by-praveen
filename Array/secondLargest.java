@@ -1,8 +1,3 @@
-// Java program to find the second largest element in the array
-// using one traversal
-
-import java.util.Arrays;
-
 class secondLargest{
     
     // function to find the second largest element in the array

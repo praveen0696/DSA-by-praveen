@@ -1,24 +1,4 @@
 import java.util.*;
-
-public class Smallest_range_in_Klists {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-
-        while (t-- > 0) {
-            int n = sc.nextInt();
-            int k = sc.nextInt();
-            int arr[][] = new int[k][n];
-            for (int i = 0; i < k; i++) {
-                for (int j = 0; j < n; j++) arr[i][j] = sc.nextInt();
-            }
-            ArrayList<Integer> range = new Solution().findSmallestRange(arr);
-            System.out.println(range.get(0) + " " + range.get(1));
-            System.out.println("~");
-        }
-    }
-}
-
 class Node implements Comparable<Node> {
     int val, row, col;
 
@@ -34,12 +14,10 @@ class Node implements Comparable<Node> {
     }
 }
 
-class Solution {
-    
-    
-    public ArrayList<Integer> findSmallestRange(int[][] arr) {
-        // code here
-         int k = arr.length;
+class Smallest_range_in_Klists {
+    // Function to find the smallest range
+    static ArrayList<Integer> findSmallestRange(int[][] arr) {
+        int k = arr.length;
         int n = arr[0].length;
         PriorityQueue<Node> pq = new PriorityQueue<>();
         int maxVal = Integer.MIN_VALUE;
@@ -63,14 +41,17 @@ class Solution {
                 maxEl = maxVal;
             }
 
+            // If we've reached the end of a list, break
             if (curr.col + 1 == n)
                 break;
 
+            // Push next element from the same list
             int nextVal = arr[curr.row][curr.col + 1];
             pq.add(new Node(nextVal, curr.row, curr.col + 1));
             maxVal = Math.max(maxVal, nextVal);
         }
 
+        // Return result as ArrayList
         ArrayList<Integer> result = new ArrayList<>();
         result.add(minEl);
         result.add(maxEl);
